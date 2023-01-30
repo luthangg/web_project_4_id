@@ -3,6 +3,7 @@
 @import url(./__form/popup__form.css);
 @import url(./__input/popup__input.css);
 @import url(./__button/popup__button.css);
+@import url(./_opened/popup_opened.css);
 
 .popup {
   position: fixed;
@@ -16,7 +17,7 @@
   display: grid;
   visibility: hidden;
   place-items: center;
-  opacity: 0.2;
+  opacity: 0;
   transition: visibility 0s ease 0.5s, opacity 0.5s ease;
   transition-delay: 0.5s, 0s;
 }
