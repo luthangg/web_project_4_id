@@ -1,25 +1,38 @@
-const editButton = document.querySelector('.button_type_edit');
-const closeButton = document.querySelector('.popup__close-button');
+// const editButton = document.querySelector('.button_type_edit');
+const closeButton = document.querySelector('.popupclose-button');
+const popupButton = document.querySelector('.button_type_edit');
 
-const nameProfile = document.querySelector('.profile__name');
-const jobProfile = document.querySelector('.profile__job');
+const modalEditPopUp = document.querySelector('.popup');
 
-const popup = document.querySelector('.popup');
-const formElement = document.querySelector('.popup__form');
-const nameInput = document.querySelector('.popup__input_type_name');
-const jobInput = document.querySelector('.popup__input_type_job');
+const nameProfile = document.querySelector('.profilename');
+const jobProfile = document.querySelector('.profilejob');
 
-editButton.addEventListener('click', togglePopup);
+const formElement = document.querySelector('.popupform');
+const nameInput = document.querySelector('.popupinput_type_name');
+const jobInput = document.querySelector('.popupinput_type_job');
+
+// editButton.addEventListener('click', togglePopup);
 formElement.addEventListener('submit', formSubmitHandler);
-closeButton.addEventListener('click', togglePopup);
+closeButton.addEventListener('click', triggerCloseModal);
+popupButton.addEventListener('click', triggerOpenModal);
 
-function togglePopup() {
-  if (!popup.classList.contains('popup_opened')) {
-    nameInput.value = nameProfile.textContent;
-    jobInput.value = jobProfile.textContent;
-  }
-  popup.classList.toggle('popup_opened');
+function triggerOpenModal() {
+  modalEditPopUp.style.display = "block";
+  nameInput.value = nameProfile.textContent;
+  jobInput.value = jobProfile.textContent;
 }
+
+function triggerCloseModal() {
+  modalEditPopUp.style.display = "none";
+}
+
+// function togglePopup() {
+//   if (!popup.classList.contains('popup_opened')) {
+//     nameInput.value = nameProfile.textContent;
+//     jobInput.value = jobProfile.textContent;
+//   }
+//   popup.classList.toggle('popup_opened');
+// }
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
@@ -27,6 +40,5 @@ function formSubmitHandler(evt) {
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
 
-  togglePopup();
+  // triggerCloseModal();
 }
-
