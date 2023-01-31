@@ -1,15 +1,15 @@
 // const editButton = document.querySelector('.button_type_edit');
-const closeButton = document.querySelector('.popupclose-button');
+const closeButton = document.querySelector('.popup__close-button');
 const popupButton = document.querySelector('.button_type_edit');
 
 const modalEditPopUp = document.querySelector('.popup');
 
-const nameProfile = document.querySelector('.profilename');
-const jobProfile = document.querySelector('.profilejob');
+const nameProfile = document.querySelector('.profile__name');
+const jobProfile = document.querySelector('.profile__job');
 
-const formElement = document.querySelector('.popupform');
-const nameInput = document.querySelector('.popupinput_type_name');
-const jobInput = document.querySelector('.popupinput_type_job');
+const formElement = document.querySelector('.popup__form');
+const nameInput = document.querySelector('.popup__input_type_name');
+const jobInput = document.querySelector('.popup__input_type_job');
 
 // editButton.addEventListener('click', togglePopup);
 formElement.addEventListener('submit', formSubmitHandler);
@@ -40,5 +40,5 @@ function formSubmitHandler(evt) {
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
 
-  // triggerCloseModal();
+  triggerCloseModal();
 }
