@@ -1,19 +1,12 @@
-@import url(./_container/profile__avatar_container.css);
-
 .profile__avatar {
-    width: 120px;
-    height: 120px;
-    background: center/cover;
-    border-radius: 50%;
-    z-index: 2;
-    transition: opacity 0.2s ease;
-  }
-  
-  .profile__avatar:hover {
-    opacity: 0.2;
-    z-index: 0;
-    cursor: pointer;
-  }
-  
+  width: 120px;
+  height: 120px;
+  background: center/cover;
+  border-radius: 50%;
+}
 
-  
+@media screen and (max-width: 919px) {
+  .profile__avatar {
+    margin: auto;
+  }
+}

@@ -4,7 +4,7 @@
   position: relative;
   left: 100%;
   bottom: 40.7px;
-  background: transparent url(../../../images/buttons/add.svg) no-repeat
+  background: transparent url('../../../images/buttons/plus.svg') no-repeat
     center/contain;
   border: none;
   transform: rotate(45deg);
@@ -16,9 +16,9 @@
 
 @media screen and (max-width: 919px) {
   .button_type_close {
-    width: 30px;
-    height: 30px;
-    left: 100%;
-    bottom: 30px;
+    width: 19px;
+    height: 19px;
+    left: calc(100% - 19px);
+    bottom: 25px;
   }
 }

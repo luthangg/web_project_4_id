@@ -11,10 +11,6 @@
 
 @media screen and (max-width: 919px) {
   .popup__title {
-    transform: translateY(-30px);
-    font-size: 18px;
-    line-height: 22px;
-    margin-left: 20px;
-    padding-top: 30px;
+    transform: translateY(-19px);
   }
 }

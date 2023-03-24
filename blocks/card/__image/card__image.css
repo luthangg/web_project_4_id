@@ -1,11 +1,8 @@
 .card__image {
-    width: 282px;
-    height: 282px;
-    border-radius: 10px 10px 0 0;
-    background-size: cover;
-}
-@media screen and (max-width: 420px) {
-    .card__image {
-      width: 100%;
-    }
+  width: 100%;
+  height: auto;
+  background: no-repeat center/cover;
+  padding-top: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }

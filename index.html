@@ -1,116 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Around The U.S. - Project 4</title>
-    <link rel="stylesheet" href="styles/index.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around The U.S.</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
 
-<body class="page">
-<div class="page__container">
-    <header class="header">
-        <img src="images/logo.svg" alt="Around The U.S." class="header__logo">
-    </header>
+  <body class="page">
+    <div class="page__container">
+      <header class="header">
+        <div role="img" aria-label="Around The U.S." class="header__logo"></div>
+      </header>
 
-<main class="main">
-    <section class="profile">
-        <div class="profile__data">
-            <div class="profile__avatar_container">
-                <a><img src="images/profileimage.svg" alt="Profile Image" class="profile__avatar"></a>
-            </div>
-
-            <div class="profile__info"></div>
-            <div class="profile__text">
-                <h2 class="profile__name">Jacques Cousteau</h2>
+      <main class="main">
+        <section class="profile">
+          <div class="profile__data">
+            <div
+              role="img"
+              aria-label="Jacques Cousteau"
+              class="profile__avatar"
+              style="background-image: url('./images/avatar.jpg');"
+            ></div>
+            <div class="profile__info">
+              <div class="profile__text">
+                <h1 class="profile__name">Jacques Cousteau</h1>
                 <p class="profile__job">Explorer</p>
+              </div>
+              <button
+                type="button"
+                aria-label="Edit"
+                class="button button_type_edit"
+              ></button>
             </div>
-            <button type="button" aria-label="Edit Profile" class="button button_type_edit"></button>
+          </div>
+          <button aria-label="Add" class="button button_type_add"></button>
+        </section>
+
+        <section class="places">
+          <ul class="places__list"></ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__text">© 2020 Around The U.S.</p>
+      </footer>
+
+      <div class="popup popup_type_edit">
+        <div class="popup__container">
+          <button
+            type="button"
+            aria-label="Close"
+            class="button button_type_close"
+          ></button>
+          <h3 class="popup__title">Edit profile</h3>
+          <form
+            method="POST"
+            name="popup_type_edit"
+            class="popup__form popup__form_type_edit"
+          >
+            <input
+              type="text"
+              class="popup__input popup__input_type_name"
+              placeholder="Name"
+            />
+            <input
+              type="text"
+              class="popup__input popup__input_type_job"
+              placeholder="About me"
+            />
+            <input type="submit" value="Save" class="button button_type_save" />
+          </form>
         </div>
-        <button aria-label="Add card" class="button button_type_add"></button>
-    </section>
+      </div>
 
-    <section class="cards">
-        <ul class="cards__grid">
-            <li class="card">
-                  <img src="images/1.png" class="card__image" alt="Picture of Yosemite Valley">
-                  <div class="card__text">
-                    <h2 class="card__title">Yosemite Valley</h2>
-                      <button type="button" class="card__like-button" aria-label="Like button"></button>
-                  </div>
-              </li>       
-              <li class="card">
-                  <img src="images/2.png" class="card__image" alt="Picture of Lake Louise">
-                  <div class="card__text">
-                    <h2 class="card__title">Lake Louise</h2>
-                      <button type="button" class="card__like-button" aria-label="Like button"></button>
-                  </div>
-              </li>       
-              <li class="card">
-                  <img src="images/3.png" class="card__image" alt="Picture of Bald Mountain">
-                  <div class="card__text">
-                    <h2 class="card__title">Bald Mountain</h2>
-                      <button type="button" class="card__like-button" aria-label="Like button"></button>
-                  </div>
-              </li>       
-              <li class="card">
-                  <img src="images/4.png" class="card__image" alt="Picture of Latemar">
-                  <div class="card__text">
-                    <h2 class="card__title">Latemar</h2>
-                      <button type="button" class="card__like-button" aria-label="Like button"></button>
-                  </div>
-              </li>       
-              <li class="card">
-                  <img src="images/5.png" class="card__image" alt="Picture of Vanoise National Park">
-                  <div class="card__text">
-                    <h2 class="card__title">Vanoise National Park</h2>
-                      <button type="button" class="card__like-button" aria-label="Like button"></button>
-                  </div>
-              </li>       
-              <li class="card">
-                  <img src="images/6.png" class="card__image" alt="Picture of Lago di Braies">
-                  <div class="card__text">
-                    <h2 class="card__title">Lago di Braies</h2>
-                    <button type="button" class="card__like-button" aria-label="Like button"></button>
-                  </div>
-              </li>         
-        </ul>
-        
-      </section>
-     
+      <div class="popup popup_type_add">
+        <div class="popup__container">
+          <button
+            type="button"
+            aria-label="Close"
+            class="button button_type_close"
+          ></button>
+          <h3 class="popup__title">New place</h3>
+          <form
+            method="POST"
+            name="popup_type_add"
+            class="popup__form popup__form_type_add"
+          >
+            <input
+              type="text"
+              class="popup__input popup__input_type_title"
+              placeholder="Title"
+            />
+            <input
+              type="url"
+              class="popup__input popup__input_type_image-url"
+              placeholder="Image link"
+            />
+            <input type="submit" value="Save" class="button button_type_save" />
+          </form>
+        </div>
+      </div>
 
-</main>
-<footer class="footer">
-    <p class="footer__text">&copy; 2020 Around the U.S.</p>
-  </footer>
-
-
-  <div class="popup">
-    <div class="popup__container">
-      <button
-        type="button"
-        aria-label="Close"
-        class="button button_type_close popup__close-button"
-      ></button>
-      <h3 class="popup__title">Edit profile</h3>
-      <form method="POST" name="popup_type_edit" class="popup__form">
-        <input
-          type="text"
-          class="popup__input popup__input_type_name"
-          placeholder="Name"
-        />
-        <input
-          type="text"
-          class="popup__input popup__input_type_job"
-          placeholder="About me"
-        />
-        <input type="submit" value="Save" class="button button_type_submit" />
-      </form>
+      <div class="popup popup_type_image">
+        <div class="popup__container popup__container_type_image">
+          <button
+            type="button"
+            aria-label="Close"
+            class="button button_type_close button_type_close_type_image"
+          ></button>
+          <figure class="popup__figure">
+            <img src="" alt="" class="popup__image" />
+            <figcaption class="popup__caption"></figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<script src="./scripts/index.js"></script>
-</body>
+    <template class="card__template">
+      <li class="card">
+        <button type="button" class="button button_type_delete"></button>
+        <div role="img" class="card__image"></div>
+        <div class="card__info">
+          <h2 class="card__title"></h2>
+          <button
+            type="button"
+            aria-label="Like"
+            class="button button_type_like"
+          ></button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>
