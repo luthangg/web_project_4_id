@@ -1,11 +1,11 @@
-@import url('./_type/button_type_edit.css');
-@import url('./_type/button_type_add.css');
-@import url('./_type/button_type_like.css');
-@import url('./_type/_liked/button_type_like_liked.css');
-@import url('./_type/button_type_close.css');
-@import url('./_type/_type/button_type_close_type_image.css');
-@import url('./_type/button_type_save.css');
-@import url('./_type/button_type_delete.css');
+@import url('./_type/button__type_edit.css');
+@import url('./_type/button__type_add.css');
+@import url('./_type/button__type_like.css');
+@import url('./_type/_liked/button__type_like_liked.css');
+@import url('./_type/button__type_close.css');
+@import url('./_type/_type/button__type_close_type_image.css');
+@import url('./_type/button__type_save.css');
+@import url('./_type/button__type_delete.css');
 
 .button {
   transition: opacity 0.2s ease;

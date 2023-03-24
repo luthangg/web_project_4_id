@@ -41,13 +41,13 @@ const editPopup = document.querySelector('.popup_type_edit');
 const imagePopup = document.querySelector('.popup_type_image');
 
 // openButtons
-const openEditPopupButton = document.querySelector('.button_type_edit');
-const openAddPopupButton = document.querySelector('.button_type_add');
+const openEditPopupButton = document.querySelector('.button__type_edit');
+const openAddPopupButton = document.querySelector('.button__type_add');
 
 // closeButtons
-const closeAddPopupButton = addPopup.querySelector('.button_type_close');
-const closeEditPopupButton = editPopup.querySelector('.button_type_close');
-const closeImagePopupButton = imagePopup.querySelector('.button_type_close');
+const closeAddPopupButton = addPopup.querySelector('.button__type_close');
+const closeEditPopupButton = editPopup.querySelector('.button__type_close');
+const closeImagePopupButton = imagePopup.querySelector('.button__type_close');
 
 // profileText
 const nameProfile = document.querySelector('.profile__name');
@@ -92,8 +92,8 @@ function addNewCard(title, link) {
 
   const cardTitle = cardElement.querySelector('.card__title');
   const cardImage = cardElement.querySelector('.card__image');
-  const cardLikeButton = cardElement.querySelector('.button_type_like');
-  const cardDeleteButton = cardElement.querySelector('.button_type_delete');
+  const cardLikeButton = cardElement.querySelector('.button__type_like');
+  const cardDeleteButton = cardElement.querySelector('.button__type_delete');
 
   cardTitle.textContent = title;
   cardImage.style.backgroundImage = `url(${link})`;
@@ -116,7 +116,7 @@ function addNewCard(title, link) {
   list.prepend(cardElement);
 }
 function toggleLikeState(cardLikeButton) {
-  cardLikeButton.classList.toggle('button_type_like_liked');
+  cardLikeButton.classList.toggle('button__type_like_liked');
 }
 function handleCardDeleteClick(evt) {
   evt.target.parentNode.remove();
