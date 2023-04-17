@@ -1,5 +1,3 @@
-// constants
-
 // cards
 const initialCards = [
   {
@@ -27,7 +25,6 @@ const initialCards = [
     link: 'https://code.s3.yandex.net/web-code/lago.jpg',
   },
 ];
-const initialCardsReverse = Object.assign([], initialCards).reverse();
 
 // cardTemplate
 const cardTemplate = document
@@ -69,8 +66,41 @@ const popupCaption = imagePopup.querySelector('.popup__caption');
 
 // functions
 
+// popupCloseHandlers
+function escapeKeyPopupCloseHandler() {
+  const openPopup = document.querySelector('.popup_opened');
+  if (event.key === 'Escape') {
+    togglePopup(openPopup);
+  }
+}
+
+function windowClickPopupCloseHandler() {
+  const openPopup = document.querySelector('.popup_opened');
+  if (event.target === openPopup) {
+    togglePopup(openPopup);
+  }
+}
+
+// eventListenerHandlers
+function addEventListenersPopupCloseHandler() {
+  document.addEventListener('keydown', escapeKeyPopupCloseHandler);
+  window.addEventListener('click', windowClickPopupCloseHandler);
+}
+
+function removeEventListenersPopupCloseHandler() {
+  document.removeEventListener('keydown', escapeKeyPopupCloseHandler);
+  window.removeEventListener('click', windowClickPopupCloseHandler);
+}
+
+// togglePopup
 function togglePopup(popup) {
-  popup.classList.toggle('popup_opened');
+  let toggle = popup.classList.toggle('popup_opened');
+
+  if (toggle) {
+    addEventListenersPopupCloseHandler();
+  } else {
+    removeEventListenersPopupCloseHandler();
+  }
 }
 
 // sumbitHandlers
@@ -80,14 +110,24 @@ function editFormSubmitHandler(evt) {
   jobProfile.textContent = jobInput.value;
   togglePopup(editPopup);
 }
+
 function addFormSubmitHandler(evt) {
   evt.preventDefault();
-  addNewCard(titleInput.value, imageURLInput.value);
+  const cardElement = createNewCard(titleInput.value, imageURLInput.value);
+  list.prepend(cardElement);
   togglePopup(addPopup);
 }
 
 // cardGenerators
-function addNewCard(title, link) {
+function toggleLikeState(cardLikeButton) {
+  cardLikeButton.classList.toggle('button_type_like_liked');
+}
+
+function handleCardDeleteClick(evt) {
+  evt.target.parentNode.remove();
+}
+
+function createNewCard(title, link) {
   const cardElement = cardTemplate.cloneNode(true);
 
   const cardTitle = cardElement.querySelector('.card__title');
@@ -96,7 +136,7 @@ function addNewCard(title, link) {
   const cardDeleteButton = cardElement.querySelector('.button_type_delete');
 
   cardTitle.textContent = title;
-  cardImage.style.backgroundImage = `url(${link})`;
+  cardImage.style.backgroundImage = `url("${link}")`;
 
   cardLikeButton.addEventListener('click', () => {
     toggleLikeState(cardLikeButton);
@@ -113,36 +153,31 @@ function addNewCard(title, link) {
     togglePopup(imagePopup);
   });
 
-  list.prepend(cardElement);
-}
-function toggleLikeState(cardLikeButton) {
-  cardLikeButton.classList.toggle('button_type_like_liked');
-}
-function handleCardDeleteClick(evt) {
-  evt.target.parentNode.remove();
+  return cardElement;
 }
 
 // eventListeners
 
 // editForm
 editForm.addEventListener('submit', editFormSubmitHandler);
+
 openEditPopupButton.addEventListener('click', () => {
-  if (!editPopup.classList.contains('popup_opened')) {
-    nameInput.value = nameProfile.textContent;
-    jobInput.value = jobProfile.textContent;
-  }
+  nameInput.value = nameProfile.textContent;
+  jobInput.value = jobProfile.textContent;
   togglePopup(editPopup);
 });
+
 closeEditPopupButton.addEventListener('click', () => {
   togglePopup(editPopup);
 });
 
 // addForm
 addForm.addEventListener('submit', addFormSubmitHandler);
+
 openAddPopupButton.addEventListener('click', () => {
   togglePopup(addPopup);
-  addPopup.classList.add('popup_opened');
 });
+
 closeAddPopupButton.addEventListener('click', () => {
   togglePopup(addPopup);
 });
@@ -153,6 +188,7 @@ closeImagePopupButton.addEventListener('click', () => {
 });
 
 // cardGeneration
-initialCardsReverse.forEach((data) => {
-  addNewCard(data.name, data.link);
+initialCards.forEach((data) => {
+  const cardElement = createNewCard(data.name, data.link);
+  list.append(cardElement);
 });
