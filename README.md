@@ -14,3 +14,6 @@
 Cara Anda melakukannya di tempat kerja adalah dengan mengekspor gambar langsung dari Figma — kami menyarankan melakukan hal tersebut agar Anda berlatih lebih banyak. Jangan lupa untuk mengoptimalkannya [di sini](https://tinypng.com/), sehingga proyek Anda dapat dimuat dengan lebih cepat.
 
 Selamat bersenang-senang dengan JavaScript!
+
+Berikut tautan untuk GitHub Pages Proyek ini
+[GitHub Pages](https://luthangg.github.io/web_project_4_id/)
