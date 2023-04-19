@@ -94,9 +94,9 @@ function removeEventListenersPopupCloseHandler() {
 
 // togglePopup
 function togglePopup(popup) {
-  let toggle = popup.classList.toggle('popup_opened');
+  const togglePop = popup.classList.toggle('popup_opened');
 
-  if (toggle) {
+  if (togglePop) {
     addEventListenersPopupCloseHandler();
   } else {
     removeEventListenersPopupCloseHandler();
@@ -120,7 +120,7 @@ function addFormSubmitHandler(evt) {
 
 // cardGenerators
 function toggleLikeState(cardLikeButton) {
-  cardLikeButton.classList.toggle('button_type_like_liked');
+  cardLikeButton.classList.togglePop('button_type_like_liked');
 }
 
 function handleCardDeleteClick(evt) {
