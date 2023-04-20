@@ -84,7 +84,7 @@ function windowClickPopupCloseHandler() {
 // eventListenerHandlers
 function addEventListenersPopupCloseHandler() {
   document.addEventListener('keydown', escapeKeyPopupCloseHandler);
-  window.addEventListener('click', windowClickPopupCloseHandler);
+  window.addEventListener('mousedown', windowClickPopupCloseHandler);
 }
 
 function removeEventListenersPopupCloseHandler() {
@@ -120,7 +120,7 @@ function addFormSubmitHandler(evt) {
 
 // cardGenerators
 function toggleLikeState(cardLikeButton) {
-  cardLikeButton.classList.togglePop('button_type_like_liked');
+  cardLikeButton.classList.toggle('button_type_like_liked');
 }
 
 function handleCardDeleteClick(evt) {
